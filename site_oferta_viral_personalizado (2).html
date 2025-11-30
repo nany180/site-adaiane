@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Ofertas Virais - @adaianeoficial</title>
+<style>
+body { font-family: Arial; background:#000; padding:40px; color:#fff; }
+.container { max-width:800px; margin:auto; background:#111; padding:30px; border-radius:12px; border:1px solid #D4AF37; }
+h1 { color:#D4AF37; }
+label { font-weight:bold; }
+textarea, input { width:100%; padding:10px; margin-top:5px; margin-bottom:20px; border-radius:8px; border:1px solid #555; background:#222; color:#fff; }
+button { background:#D4AF37; color:black; padding:12px 20px; border:none; border-radius:8px; font-size:16px; cursor:pointer; font-weight:bold; }
+.output { margin-top:30px; background:#222; padding:20px; border-left:4px solid #D4AF37; border-radius:8px; color:#fff; }
+.footer { margin-top:40px; text-align:center; color:#D4AF37; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Gerador de Ofertas Virais<br><small>@adaianeoficial</small></h1>
+<p>Preencha os campos abaixo e gere sua oferta instantânea!</p>
+
+<label>O que você vende?</label>
+<input id="produto" type="text">
+
+<label>Para quem?</label>
+<input id="publico" type="text">
+
+<label>Maior problema dessa pessoa</label>
+<input id="problema" type="text">
+
+<label>Principal benefício</label>
+<input id="beneficio" type="text">
+
+<button onclick="gerar()">Gerar Oferta</button>
+
+<div id="resultado" class="output" style="display:none;"></div>
+</div>
+
+<div class="footer">Criado exclusivamente para @adaianeoficial</div>
+
+<script>
+function gerar(){
+  let p = document.getElementById('produto').value;
+  let pb = document.getElementById('publico').value;
+  let pr = document.getElementById('problema').value;
+  let b = document.getElementById('beneficio').value;
+
+  let frase = `Se você é ${pb} e está cansado(a) de ${pr}, esse ${p} é exatamente o que você precisa — porque ele te entrega ${b} de um jeito rápido e sem complicação.`;
+
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('resultado').innerText = frase;
+}
+</script>
+</body>
+</html>
