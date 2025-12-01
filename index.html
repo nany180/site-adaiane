@@ -10,63 +10,70 @@
             margin: 0;
             padding: 0;
             background-color: #000;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             color: #fff;
         }
 
-        h1, h2, h3, p, label { 
+        h1, h2, h3, p, label {
             color: #d4af37;
         }
 
-        .container{
+        .container {
             width: 90%;
+            max-width: 600px;
             margin: auto;
-            padding: 20px;
-            text-align: center;
+            padding-top: 20px;
         }
 
-        input{
-            width: 90%;
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 10px;
+        .box {
             border: 2px solid #d4af37;
-            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            background: transparent;
             color: #fff;
             font-size: 16px;
+            margin-bottom: 15px;
         }
 
-        button{
-            width: 90%;
-            padding: 18px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 10px;
-            background-color: #d4af37;
-            color: #000;
-            font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .resultado{
-            margin-top: 40px;
-            padding: 20px;
-            background: #111;
-            border-radius: 10px;
-            border: 2px solid #d4af37;
-            color: #fff;
-        }
-
-        .btn-whatsapp{
-            display: block;
-            width: 90%;
-            margin: 35px auto;
+        button {
+            width: 100%;
             padding: 18px;
             background: #d4af37;
+            border: none;
+            border-radius: 10px;
             color: #000;
             font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .top-bar {
+            background: #111;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .cta-vendas {
+            display: block;
+            text-align: center;
+            background: #d4af37;
+            color: #000;
+            padding: 18px;
+            font-size: 20px;
             border-radius: 12px;
+            margin-top: 20px;
             text-decoration: none;
             font-weight: bold;
         }
@@ -75,46 +82,51 @@
 </head>
 <body>
 
+    <div class="top-bar">
+        🔥 FERRAMENTA ATIVA — ACESSO IMEDIATO
+    </div>
+
     <div class="container">
-        <h1>Gerador de Ofertas Virais<br> Daiane Oficial</h1>
 
-        <h2>Crie sua oferta viral instantaneamente!</h2>
+        <h1>Gerador de Ofertas Virais<br>Daiane Oficial</h1>
 
-        <label>Nome do Produto:</label>
-        <input type="text" id="produto" placeholder="Ex: Escova Secadora 2025">
+        <p>Transforme qualquer produto em uma oferta irresistível em poucos minutos!</p>
 
-        <label>Benefício Principal:</label>
-        <input type="text" id="beneficio" placeholder="Ex: Deixa o cabelo liso em 5 minutos">
-
-        <label>Chamada de Ação:</label>
-        <input type="text" id="acao" placeholder="Ex: Clique e garanta o seu">
-
-        <button onclick="gerarOferta()">Gerar Oferta Viral</button>
-
-        <div id="resultado" class="resultado" style="display:none;"></div>
-
-        <a class="btn-whatsapp" 
-            href="https://wa.me/5547996388596?text=Ol%C3%A1%20Daiane%2C%20quero%20liberar%20o%20acesso%20ao%20Gerador%20de%20Ofertas%20Virais."
-            target="_blank">
-            🔥 Quero liberar o gerador
+        <a class="cta-vendas" href="https://nany180.github.io/site-adaiane/" target="_blank">
+            ⭐ ACESSAR PÁGINA DE VENDAS COMPLETA ⭐
         </a>
+
+        <a class="cta-vendas" href="https://wa.me/5547996388596" target="_blank">
+            💬 Falar com Daiane no WhatsApp
+        </a>
+
+        <div class="box">
+            <h2>Gerar Oferta Viral</h2>
+
+            <label>Nome do Produto:</label>
+            <input id="produto" placeholder="Ex: Escova Secadora 2025">
+
+            <label>Benefício Principal:</label>
+            <input id="beneficio" placeholder="Ex: Deixa o cabelo liso em 5 minutos">
+
+            <label>Chamada de Ação:</label>
+            <input id="acao" placeholder="Ex: Clique e garanta o seu">
+
+            <button onclick="gerarOferta()">Gerar Oferta Viral</button>
+
+            <p id="resultado" style="margin-top:20px; font-size:18px; color:#fff;"></p>
+        </div>
 
     </div>
 
     <script>
         function gerarOferta(){
-            let produto = document.getElementById("produto").value;
-            let beneficio = document.getElementById("beneficio").value;
-            let acao = document.getElementById("acao").value;
+            let p = document.getElementById("produto").value;
+            let b = document.getElementById("beneficio").value;
+            let a = document.getElementById("acao").value;
 
-            let texto = `
-                🚀 *${produto}* chegou para transformar seu dia!<br><br>
-                ✨ *${beneficio}*<br><br>
-                🔥 *${acao}*
-            `;
-
-            document.getElementById("resultado").innerHTML = texto;
-            document.getElementById("resultado").style.display = "block";
+            document.getElementById("resultado").innerHTML =
+                `<b>${p}</b> — ${b}. ${a}!`;
         }
     </script>
 
