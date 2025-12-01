@@ -1,118 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador de Ofertas Virais - Daiane Oficial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Ofertas Virais - Daiane Oficial</title>
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        font-family: 'Arial', sans-serif;
-        color: white;
-    }
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
 
-    header {
-        background-color: #111;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 2px solid #D4AF37;
-    }
+        h1, h2, h3, p, label { 
+            color: #d4af37;
+        }
 
-    header h1 {
-        font-size: 28px;
-        color: #D4AF37;
-        margin: 0;
-        font-weight: bold;
-    }
+        .container{
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px;
-    }
+        input{
+            width: 90%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+        }
 
-    h2 {
-        color: #D4AF37;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+        button{
+            width: 90%;
+            padding: 18px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #d4af37;
+            color: #000;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-    .box {
-        background-color: #111;
-        border: 2px solid #D4AF37;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 25px;
-    }
+        .resultado{
+            margin-top: 40px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            color: #fff;
+        }
 
-    label {
-        font-size: 16px;
-        font-weight: bold;
-        color: #D4AF37;
-    }
-
-    input {
-        width: 100%;
-        padding: 12px;
-        margin-top: 8px;
-        margin-bottom: 20px;
-        border: 2px solid #D4AF37;
-        background-color: #000;
-        color: white;
-        border-radius: 6px;
-        font-size: 16px;
-    }
-
-    button {
-        width: 100%;
-        background-color: #D4AF37;
-        color: black;
-        padding: 15px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    button:hover {
-        background-color: #b9922f;
-    }
-
-    .resultado {
-        margin-top: 20px;
-        padding: 20px;
-        border: 2px solid #D4AF37;
-        background-color: #111;
-        border-radius: 10px;
-        display: none;
-        font-size: 18px;
-    }
-
-    footer {
-        margin-top: 40px;
-        text-align: center;
-        padding: 20px;
-        color: #D4AF37;
-        font-size: 14px;
-    }
-</style>
+        .btn-whatsapp{
+            display: block;
+            width: 90%;
+            margin: 35px auto;
+            padding: 18px;
+            background: #d4af37;
+            color: #000;
+            font-size: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 
 </head>
 <body>
 
-<header>
-    <h1>Gerador de Ofertas Virais - Daiane Oficial</h1>
-</header>
+    <div class="container">
+        <h1>Gerador de Ofertas Virais<br> Daiane Oficial</h1>
 
-<div class="container">
+        <h2>Crie sua oferta viral instantaneamente!</h2>
 
-    <h2>Crie sua oferta viral instantaneamente!</h2>
-
-    <div class="box">
         <label>Nome do Produto:</label>
         <input type="text" id="produto" placeholder="Ex: Escova Secadora 2025">
 
@@ -120,36 +87,36 @@
         <input type="text" id="beneficio" placeholder="Ex: Deixa o cabelo liso em 5 minutos">
 
         <label>Chamada de Ação:</label>
-        <input type="text" id="cta" placeholder="Ex: Clique e garanta o seu">
+        <input type="text" id="acao" placeholder="Ex: Clique e garanta o seu">
 
-        <button onclick="gerar()">Gerar Oferta Viral</button>
+        <button onclick="gerarOferta()">Gerar Oferta Viral</button>
+
+        <div id="resultado" class="resultado" style="display:none;"></div>
+
+        <a class="btn-whatsapp" 
+            href="https://wa.me/5547996388596?text=Ol%C3%A1%20Daiane%2C%20quero%20liberar%20o%20acesso%20ao%20Gerador%20de%20Ofertas%20Virais."
+            target="_blank">
+            🔥 Quero liberar o gerador
+        </a>
+
     </div>
 
-    <div id="resultado" class="resultado"></div>
+    <script>
+        function gerarOferta(){
+            let produto = document.getElementById("produto").value;
+            let beneficio = document.getElementById("beneficio").value;
+            let acao = document.getElementById("acao").value;
 
-</div>
+            let texto = `
+                🚀 *${produto}* chegou para transformar seu dia!<br><br>
+                ✨ *${beneficio}*<br><br>
+                🔥 *${acao}*
+            `;
 
-<footer>
-    Criado por Daiane Oficial 💛 | Todos os direitos reservados
-</footer>
-
-<script>
-function gerar() {
-    let produto = document.getElementById("produto").value;
-    let beneficio = document.getElementById("beneficio").value;
-    let cta = document.getElementById("cta").value;
-
-    let texto = `
-        🔥 <b>${produto}</b><br><br>
-        ✨ ${beneficio}<br><br>
-        💛 <b>${cta}</b>
-    `;
-
-    let box = document.getElementById("resultado");
-    box.innerHTML = texto;
-    box.style.display = "block";
-}
-</script>
+            document.getElementById("resultado").innerHTML = texto;
+            document.getElementById("resultado").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
