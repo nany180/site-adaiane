@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             background-color: #000;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             color: #fff;
         }
 
@@ -18,89 +18,101 @@
             color: #d4af37;
         }
 
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: auto;
-            padding-top: 20px;
-        }
-
-        .box {
-            border: 2px solid #d4af37;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #d4af37;
-            border-radius: 10px;
-            background: transparent;
-            color: #fff;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        button {
-            width: 100%;
-            padding: 18px;
-            background: #d4af37;
-            border: none;
-            border-radius: 10px;
-            color: #000;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .top-bar {
-            background: #111;
-            padding: 10px;
+        .topo-alerta{
+            background-color: #111;
+            padding: 12px;
             text-align: center;
+            font-size: 18px;
             border-bottom: 2px solid #d4af37;
+        }
+
+        .container{
+            padding: 20px;
+        }
+
+        .titulo{
+            text-align: center;
+            font-size: 30px;
             font-weight: bold;
             color: #d4af37;
+            margin-bottom: 10px;
         }
 
-        .cta-vendas {
+        .btn{
             display: block;
-            text-align: center;
-            background: #d4af37;
+            width: 90%;
+            margin: 15px auto;
+            padding: 15px;
+            background-color: #d4af37;
             color: #000;
-            padding: 18px;
             font-size: 20px;
+            text-align: center;
             border-radius: 12px;
-            margin-top: 20px;
-            text-decoration: none;
             font-weight: bold;
+            text-decoration: none;
+        }
+
+        .form-box{
+            border: 2px solid #d4af37;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        input{
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            background-color: #000;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .btn-gerar{
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .resultado{
+            margin-top: 25px;
+            background-color: #111;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            display: none;
+            white-space: pre-line;
         }
     </style>
 
 </head>
 <body>
 
-    <div class="top-bar">
+    <div class="topo-alerta">
         🔥 FERRAMENTA ATIVA — ACESSO IMEDIATO
     </div>
 
     <div class="container">
+        <h1 class="titulo">Gerador de Ofertas Virais<br>Daiane Oficial</h1>
 
-        <h1>Gerador de Ofertas Virais<br>Daiane Oficial</h1>
+        <p style="text-align:center;">
+            Transforme qualquer produto em uma oferta irresistível em poucos minutos!
+        </p>
 
-        <p>Transforme qualquer produto em uma oferta irresistível em poucos minutos!</p>
+        <!-- BOTÃO DE VENDAS -->
+        <a class="btn" href="https://pay.kiwify.com.br/Bzs4PJR" target="_blank">⭐ ACESSAR PÁGINA DE VENDAS COMPLETA ⭐</a>
 
-        <a class="cta-vendas" href="https://nany180.github.io/site-adaiane/" target="_blank">
-            ⭐ ACESSAR PÁGINA DE VENDAS COMPLETA ⭐
-        </a>
+        <!-- BOTÃO WHATSAPP -->
+        <a class="btn" href="https://wa.me/5547996388596" target="_blank">💬 Falar com Daiane no WhatsApp</a>
 
-        <a class="cta-vendas" href="https://wa.me/5547996388596" target="_blank">
-            💬 Falar com Daiane no WhatsApp
-        </a>
-
-        <div class="box">
+        <div class="form-box">
             <h2>Gerar Oferta Viral</h2>
 
             <label>Nome do Produto:</label>
@@ -112,21 +124,35 @@
             <label>Chamada de Ação:</label>
             <input id="acao" placeholder="Ex: Clique e garanta o seu">
 
-            <button onclick="gerarOferta()">Gerar Oferta Viral</button>
+            <button class="btn-gerar" onclick="gerar()">Gerar Oferta Viral</button>
 
-            <p id="resultado" style="margin-top:20px; font-size:18px; color:#fff;"></p>
+            <div id="resultado" class="resultado"></div>
         </div>
-
     </div>
 
     <script>
-        function gerarOferta(){
-            let p = document.getElementById("produto").value;
-            let b = document.getElementById("beneficio").value;
-            let a = document.getElementById("acao").value;
+        function gerar(){
+            let produto = document.getElementById("produto").value;
+            let beneficio = document.getElementById("beneficio").value;
+            let acao = document.getElementById("acao").value;
+            let caixa = document.getElementById("resultado");
 
-            document.getElementById("resultado").innerHTML =
-                `<b>${p}</b> — ${b}. ${a}!`;
+            if(produto === "" || beneficio === "" || acao === ""){
+                caixa.style.display = "block";
+                caixa.innerText = "Preencha todos os campos!";
+                return;
+            }
+
+            let texto = 
+`🔥 ${produto.toUpperCase()} — Oferta Especial!  
+
+✔️ ${beneficio}  
+👉 ${acao}  
+
+💛 Oferta criada automaticamente pelo Gerador de Ofertas Virais — Daiane Oficial.`;
+
+            caixa.style.display = "block";
+            caixa.innerText = texto;
         }
     </script>
 
