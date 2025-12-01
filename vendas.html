@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Ofertas Virais - Página de Vendas</title>
+  <meta name="description" content="Transforme qualquer produto em uma oferta irresistível em poucos minutos com o Gerador de Ofertas Virais - Daiane Oficial." />
+  <style>
+    :root {
+      --bg: #000000;
+      --card: #111111;
+      --card-soft: #151515;
+      --accent: #d4af37;
+      --accent-soft: #f1c75b;
+      --text: #ffffff;
+      --muted: #b3b3b3;
+      --danger: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a 0, #000 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 18px 60px;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #087f23, #4caf50);
+      color: #eaffea;
+      margin-bottom: 18px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #8cff8c;
+      box-shadow: 0 0 10px #8cff8c;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #111111, #050505);
+      border-radius: 20px;
+      padding: 24px 20px 26px;
+      border: 1px solid #262626;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+      margin-bottom: 28px;
+    }
+
+    .hero-header {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+    }
+
+    .hero-title {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .hero-main {
+      margin-top: 20px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero-highlight-box {
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.16), transparent 55%);
+      border-radius: 14px;
+      border: 1px solid #2b2b2b;
+      padding: 14px 14px;
+      font-size: 13px;
+      color: #f5f5f5;
+    }
+
+    .hero-price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .hero-price-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+    }
+
+    .hero-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .hero-price-old {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .hero-reminder {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 14px;
+      padding: 13px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #f7d46a);
+      color: #000;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.65);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn-primary span.icon {
+      font-size: 18px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .trust-text {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .trust-text strong {
+      color: #f1f1f1;
+    }
+
+    .section {
+      margin-bottom: 26px;
+      background: rgba(10, 10, 10, 0.92);
+      border-radius: 18px;
+      border: 1px solid #262626;
+      padding: 18px 16px 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    .section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      position: relative;
+      padding: 8px 10px 8px 28px;
+      border-radius: 999px;
+      background: #121212;
+      font-size: 13px;
+      color: #f5f5f5;
+      border: 1px solid #262626;
+    }
+
+    .pill::before {
+      content: "✓";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: var(--accent-soft);
+    }
+
+    .grid-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .step-card {
+      background: #101010;
+      border-radius: 14px;
+      border: 1px solid #262626;
+      padding: 10px 11px;
+      font-size: 13px;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      font-size: 11px;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: #f5f5f5;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .benefit-card {
+      background: #101010;
+      border-radius: 14px;
+      border: 1px solid #262626;
+      padding: 11px 12px;
+      font-size: 13px;
+    }
+
+    .benefit-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #f5f5f5;
+    }
+
+    .benefit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+
+    .benefit-badge span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .faq-item {
+      border-radius: 14px;
+      border: 1px solid #262626;
+      background: #101010;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: #f5f5f5;
+    }
+
+    .faq-a {
+      color: var(--muted);
+    }
+
+    .cta-bottom {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .cta-bottom p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .secondary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--accent-soft);
+      margin-top: 6px;
+    }
+
+    .secondary-link span.icon {
+      font-size: 13px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 10px;
+      color: #666666;
+      margin-top: 18px;
+    }
+
+    /* Desktop */
+    @media (min-width: 720px) {
+      .hero {
+        padding: 26px 26px 26px;
+      }
+
+      .hero-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .hero-title {
+        font-size: 30px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .hero-main {
+        grid-template-columns: 1.25fr 1fr;
+        align-items: center;
+      }
+
+      .hero-highlight-box {
+        margin-left: auto;
+        max-width: 320px;
+      }
+
+      .section {
+        padding: 20px 20px 22px;
+      }
+
+      .grid-steps {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge-top">
+        <span class="badge-dot"></span>
+        FERRAMENTA ATIVA · ACESSO IMEDIATO
+      </div>
+
+      <div class="hero-header">
+        <div>
+          <div class="hero-tagline">Nova ferramenta · copie & cole textos prontos</div>
+          <h1 class="hero-title">
+            Gerador de <span>Ofertas Virais</span><br />
+            Daiane Oficial
+          </h1>
+          <p class="hero-sub">
+            Pare de travar na hora de escrever anúncios. Em poucos cliques você gera ofertas prontas para
+            Shopee, Instagram, Reels, Stories, WhatsApp e muito mais.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-main">
+        <div>
+          <div class="pill-list">
+            <div class="pill">Ideal para afiliadas, infoprodutoras e quem vende na Shopee, Instagram ou WhatsApp.</div>
+            <div class="pill">Funciona direto do celular – perfeito para quem vive na correria.</div>
+            <div class="pill">Textos pensados para chamar atenção, despertar desejo e levar para o clique.</div>
+          </div>
+        </div>
+
+        <div class="hero-highlight-box">
+          <div class="hero-price-line">
+            <div class="hero-price-label">Oferta especial de lançamento</div>
+          </div>
+          <div class="hero-price-line">
+            <span class="hero-price">R$ 29,90</span>
+            <span class="hero-price-old">R$ 97,00</span>
+          </div>
+          <p class="hero-reminder">
+            Pagamento único, acesso vitalício à ferramenta e às futuras atualizações da Daiane.
+          </p>
+
+          <a class="btn-primary" href="https://pay.kiwify.com.br/Bzs4PJR" target="_blank" rel="noopener noreferrer">
+            <span class="icon">🔥</span>
+            <span>Quero liberar o Gerador de Ofertas Virais</span>
+          </a>
+
+          <p class="trust-text">
+            Pagamento 100% seguro via <strong>Kiwify</strong>. Acesso enviado por e-mail em poucos minutos após a confirmação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Para quem é</div>
+          <h2 class="section-title">Esse gerador é perfeito se você...</h2>
+        </div>
+      </div>
+      <div class="pill-list">
+        <div class="pill">Vende como afiliada, criadora ou lojista na Shopee, Instagram, TikTok, Kwai ou WhatsApp.</div>
+        <div class="pill">Perde tempo tentando escrever textos chamativos e sente que “fica tudo igual”.</div>
+        <div class="pill">Vê outras pessoas vendendo com facilidade e sente que só precisa de uma boa oferta.</div>
+        <div class="pill">Quer algo simples: responder, copiar, colar e começar a vender mais hoje.</div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Como funciona</div>
+          <h2 class="section-title">Gere <span>ofertas virais</span> em 4 passos</h2>
+        </div>
+      </div>
+      <p>
+        Nada de complicação. Eu criei o Gerador de Ofertas Virais para funcionar como uma conversa guiada com você:
+      </p>
+      <div class="grid-steps">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-title">Escolha o produto</div>
+          <p>Você informa o nome e o tipo de produto que quer vender (físico ou digital).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-title">Responda às perguntas</div>
+          <p>Em poucos segundos você responde perguntas simples sobre benefício, público e promessa.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-title">Gere o texto</div>
+          <p>O gerador cria uma oferta pronta, com chamada, benefício e urgência no estilo “copie & cole”.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">4</div>
+          <div class="step-title">Copie e use</div>
+          <p>É só colar na Shopee, legendas de Reels, anúncios, grupos e listas de transmissão no WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE VOCÊ VAI RECEBER -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">O que você leva</div>
+          <h2 class="section-title">Ao finalizar a compra você recebe:</h2>
+        </div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>Ferramenta principal</div>
+          <div class="benefit-title">Acesso ao Gerador de Ofertas Virais</div>
+          <p>Ferramenta online que funciona direto no navegador do seu celular ou computador.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>Uso ilimitado</div>
+          <div class="benefit-title">Gere quantas ofertas quiser</div>
+          <p>Você pode usar para vários produtos, nichos e campanhas, sempre que precisar.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>Textos prontos</div>
+          <div class="benefit-title">Modelos para Shopee, Reels e Stories</div>
+          <p>Ofertas pensadas para chamar atenção rápido e levar a pessoa para o clique ou direct.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>WhatsApp</div>
+          <div class="benefit-title">Mensagem pronta para disparo</div>
+          <p>Copie o texto e envie em listas, grupos e atendimento individual no WhatsApp.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>Atualizações</div>
+          <div class="benefit-title">Melhorias futuras incluídas</div>
+          <p>Quando eu atualizar o gerador com novos modelos, você recebe junto, sem pagar a mais.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-badge"><span class="dot"></span>Suporte</div>
+          <div class="benefit-title">Contato direto comigo</div>
+          <p>Se tiver qualquer dúvida, você fala diretamente comigo pelo WhatsApp após a compra.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUE É DIFERENTE -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Por que funciona</div>
+          <h2 class="section-title">Por que o Gerador de Ofertas Virais é diferente?</h2>
+        </div>
+      </div>
+      <p>
+        Eu criei essa ferramenta depois de ver muita gente com produto bom, mas oferta fraca. Não é um curso longo nem
+        um arquivo perdido no e-mail. É uma página simples, direta e prática, feita para você usar todos os dias.
+      </p>
+      <div class="pill-list">
+        <div class="pill">Você não precisa ser boa em escrever – basta responder e copiar.</div>
+        <div class="pill">Funciona muito bem para quem vende na Shopee e quer se destacar da concorrência.</div>
+        <div class="pill">Ajuda a criar consistência: todo dia você consegue ter um texto forte para postar ou enviar.</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Dúvidas frequentes</div>
+          <h2 class="section-title">Perguntas rápidas antes de destravar suas vendas</h2>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">1. Em quanto tempo eu recebo acesso?</div>
+        <div class="faq-a">
+          Assim que o pagamento for aprovado pela Kiwify, você recebe automaticamente o e-mail com os dados de acesso.
+          Normalmente acontece em poucos minutos.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">2. Funciona pelo celular?</div>
+        <div class="faq-a">
+          Sim! Todo o gerador foi pensado para funcionar direto do celular, sem precisar instalar aplicativo.
+          Você pode usar também no computador, se preferir.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">3. Posso usar para vários produtos?</div>
+        <div class="faq-a">
+          Pode sim. Você pode gerar ofertas para quantos produtos quiser: físicos, digitais, infoprodutos, combos,
+          kits, etc.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">4. Como é feito o pagamento?</div>
+        <div class="faq-a">
+          O pagamento é processado com segurança pela <strong>Kiwify</strong>, através de cartão, PIX ou boleto.
+          Assim que o sistema confirmar, o acesso é liberado automaticamente.
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section">
+      <div class="cta-bottom">
+        <p>
+          Se você quer parar de travar na hora de escrever e começar a postar ofertas que realmente chamam atenção,
+          o Gerador de Ofertas Virais foi feito para você.
+        </p>
+        <a class="btn-primary" href="https://pay.kiwify.com.br/Bzs4PJR" target="_blank" rel="noopener noreferrer">
+          <span class="icon">🚀</span>
+          <span>Garantir acesso por apenas R$ 29,90</span>
+        </a>
+
+        <a class="secondary-link" href="https://nany180.github.io/site-adaiane/" target="_blank" rel="noopener noreferrer">
+          <span class="icon">✨</span>
+          <span>Já sou aluna? Ir direto para o Gerador de Ofertas Virais</span>
+        </a>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Gerador de Ofertas Virais - Daiane Oficial · Produto digital com acesso enviado por e-mail após confirmação do pagamento.
+    </p>
+  </div>
+</body>
+  </html>
